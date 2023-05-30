@@ -66,7 +66,7 @@ public class PerfilDAO {
         Perfil p = new Perfil();
         try {
             Connection con = Conexao.getConexao();
-            String sql = "select * from perfil where id = ?";
+            String sql = "select * from perfil where idperfil = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();

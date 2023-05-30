@@ -18,6 +18,7 @@ import model.Usuario;
  * @author Jonata
  */
 public class UsuarioDAO {
+
     public void cadastrarUsuarioDAO(Usuario uVO) {
         //busca conexão com o BD
         try {
@@ -26,12 +27,13 @@ public class UsuarioDAO {
             String sql;
 
             sql = "insert into usuario values"
-                    + "(null, ?, ?, null, ?, ?)";
+                    + "(null, ?, ?, null, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, uVO.getNome());
             pst.setString(2, uVO.getCpf());
             pst.setString(3, uVO.getTelefone());
             pst.setString(4, uVO.getEndereco());
+            pst.setInt(5, uVO.getIdPerfil().getIdPerfil());
             pst.executeUpdate();
 
         } catch (SQLException ex) {
@@ -39,7 +41,7 @@ public class UsuarioDAO {
                     + ex.getMessage());
         }
     }//fim cadastrarUsuarioDAO
-    
+
     public ArrayList<Usuario> getUsuarioDAO() {
         ArrayList<Usuario> usuario = new ArrayList<>();
         try {
@@ -65,7 +67,7 @@ public class UsuarioDAO {
         }
         return usuario;
     }//fim do listar (ArrayList)
-    
+
     public Usuario getUsuarioByDoc(String cpf) {
 
         Usuario u = new Usuario();
@@ -89,7 +91,7 @@ public class UsuarioDAO {
         }
         return u;
     }// fim getUsuarioByDoc
-    
+
     public void deletarUsuarioDAO(String cpf) {
 
         try {
@@ -103,7 +105,7 @@ public class UsuarioDAO {
                     + ex.getMessage());
         }
     }//fim deletarUsuarioDAO
-    
+
     public void atualizaUsuarioByDoc(Usuario uVO) {
 
         try {
