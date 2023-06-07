@@ -143,11 +143,17 @@ public class jfUsuario extends javax.swing.JFrame {
         jLabel4.setText("* Telefone :");
 
         try {
-            jftfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+            jftfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jftfTelefone.setText("");
         jftfTelefone.setToolTipText("Somente Números");
+        jftfTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jftfTelefoneActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -420,8 +426,8 @@ public class jfUsuario extends javax.swing.JFrame {
         linha = jtUsuario.getSelectedRow();
         String cpf = (String) jtUsuario.getValueAt(linha, 0);
         String nome = (String) jtUsuario.getValueAt(linha, 1);
-        String telefone = (String) jtUsuario.getValueAt(linha, 2);
-        String endereco = (String) jtUsuario.getValueAt(linha, 3);
+        String telefone = (String) jtUsuario.getValueAt(linha, 3);
+        String endereco = (String) jtUsuario.getValueAt(linha, 2);
 
         jtfCPF.setText(cpf);
         jtfNome.setText(nome);
@@ -449,6 +455,10 @@ public class jfUsuario extends javax.swing.JFrame {
         }
         jbDeletar.setVisible(false);
     }//GEN-LAST:event_jbDeletarActionPerformed
+
+    private void jftfTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jftfTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jftfTelefoneActionPerformed
 
     /**
      * @param args the command line arguments

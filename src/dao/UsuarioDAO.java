@@ -27,7 +27,7 @@ public class UsuarioDAO {
             String sql;
 
             sql = "insert into usuario values"
-                    + "(null, ?, ?, null, ?, ?, ?)";
+                    + "(null, ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, uVO.getNome());
             pst.setString(2, uVO.getCpf());
