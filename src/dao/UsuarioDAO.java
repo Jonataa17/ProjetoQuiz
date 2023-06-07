@@ -96,7 +96,7 @@ public class UsuarioDAO {
 
         try {
             Connection con = Conexao.getConexao();
-            String sql = "delete from usuario where = ?";
+            String sql = "delete from usuario where cpf = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, cpf);
             pst.executeUpdate();
